@@ -1,4 +1,13 @@
 ---
+- name: Install Ansible roles from requirements.yml
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Install roles from requirements.yml
+      command: ansible-galaxy install -r requirements.yml
+      args:
+        chdir: "{{ playbook_dir }}"
+
 - name: role demo
   hosts: all
   become: true

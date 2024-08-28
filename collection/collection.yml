@@ -1,4 +1,13 @@
 ---
+- name: Install Ansible collection from requirements.yml
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Install collection from requirements.yml
+      command: ansible-galaxy install -r requirements.yml
+      args:
+        chdir: "{{ playbook_dir }}"
+
 - name: modprobe module demo
   hosts: localhost
   become: true
